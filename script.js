@@ -47,12 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
       dots.forEach((dot, i) => {
         // Reset styles for all dots
         dot.classList.remove("bg-primary", "scale-125");
-        dot.classList.add("bg-white/50");
+        dot.classList.add("bg-primary");
         dot.innerHTML = ""; // Clear existing content (numbers)
 
         if (i === currentSlide) {
           // Active dot styles
-          dot.classList.remove("bg-white/50");
+          dot.classList.remove("bg-primary");
           dot.classList.add("bg-primary", "scale-125");
 
           // Add number label

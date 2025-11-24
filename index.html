@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Construction Company</title>
+    <title>Mitime Mongolia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -117,7 +117,7 @@
 <body class="font-sans text-dark bg-white overflow-x-hidden">
 
     <!-- Top Bar -->
-    <header class="w-full z-50 bg-white relative">
+    <header class="w-full z-50 relative">
         <!-- Top black strip -->
         <div class="bg-black text-white text-xs py-1 px-4">
             <div class="container mx-auto flex justify-between items-center">
@@ -189,32 +189,37 @@
         </div>
 
         <!-- Navigation Bar -->
-        <div class="bg-black text-white relative max-w-[1200px] mx-auto">
+        <div class="bg-black text-white relative max-w-[1200px] mx-auto -mb-7">
             <div class=" container mx-auto flex justify-between items-center relative z-20">
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex">
                     <a href="#"
-                        class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">ҮНДСЭН
-                        ЦЭС</a>
+                        class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">БИДНИЙ
+                        ТУХАЙ</a>
                     <a href="#"
-                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">ТАНИЛЦУУЛГА</a>
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
+                        ажиллагаа</a>
                     <a href="#"
-                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">ХЭРЭГЖҮҮЛСЭН
-                        ТӨСЛҮҮД</a>
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Хэрэгжүүлж
+                        буй төслүүд</a>
                     <a href="#"
-                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">БҮТЭЭГДЭХҮҮН</a>
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Харилцагчид</a>
                     <a href="#"
-                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">МЕДИА
-                        МЭДЭЭЛЭЛ</a>
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Мэдээ
+                        мэдээлэл</a>
                 </nav>
 
                 <!-- Search and Mobile Toggle -->
-                <div class="flex items-center pr-4">
-                    <div class="hidden md:flex bg-white items-center py-1 px-3 ml-4 rounded-sm">
+                <div class="flex items-center ml-auto">
+                    <!-- <div class="hidden md:flex bg-white items-center py-1 px-3 ml-4 rounded-sm">
                         <input type="text" placeholder="Хайх..."
                             class="text-black text-sm outline-none w-24 lg:w-48 placeholder-gray-400" />
                         <i data-lucide="search" class="w-4 h-4 text-primary"></i>
-                    </div>
+                    </div> -->
+
+                    <button id="mobile-menu-btn" class="hidden md:flex p-4 bg-white text-[#D61A25] uppercase">
+                        Нэвтрэх
+                    </button>
                     <button id="mobile-menu-btn" class="md:hidden p-4 text-white">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
@@ -224,18 +229,19 @@
             <!-- Mobile Menu Dropdown -->
             <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
                 <a href="#"
-                    class="block py-3 px-4 text-sm font-medium uppercase text-gray-300 hover:bg-primary hover:text-white border-b border-gray-800">ҮНДСЭН
-                    ЦЭС</a>
+                    class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">БИДНИЙ
+                    ТУХАЙ</a>
                 <a href="#"
-                    class="block py-3 px-4 text-sm font-medium uppercase text-gray-300 hover:bg-primary hover:text-white border-b border-gray-800">ТАНИЛЦУУЛГА</a>
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
+                    ажиллагаа</a>
                 <a href="#"
-                    class="block py-3 px-4 text-sm font-medium uppercase text-gray-300 hover:bg-primary hover:text-white border-b border-gray-800">ХЭРЭГЖҮҮЛСЭН
-                    ТӨСЛҮҮД</a>
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Хэрэгжүүлж
+                    буй төслүүд</a>
                 <a href="#"
-                    class="block py-3 px-4 text-sm font-medium uppercase text-gray-300 hover:bg-primary hover:text-white border-b border-gray-800">БҮТЭЭГДЭХҮҮН</a>
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Харилцагчид</a>
                 <a href="#"
-                    class="block py-3 px-4 text-sm font-medium uppercase text-gray-300 hover:bg-primary hover:text-white border-b border-gray-800">МЕДИА
-                    МЭДЭЭЛЭЛ</a>
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Мэдээ
+                    мэдээлэл</a>
             </div>
         </div>
     </header>

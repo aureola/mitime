@@ -242,12 +242,13 @@
         </div>
 
         <!-- Navigation Bar -->
-        <div class="bg-black text-white relative max-w-[1200px] mx-auto -mb-7">
+        <div class="bg-black text-white relative max-w-[1200px] mx-auto">
             <div class=" container mx-auto flex justify-between items-center relative z-20">
                 <!-- Desktop Menu -->
-                <nav class="hidden md:flex">
-                    <a href="about.html"
-                        class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">БИДНИЙ
+                <nav class="hidden md:flex justify-between items-center h-full">
+                    <a href=" #"
+                        class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">
+                        БИДНИЙ
                         ТУХАЙ</a>
                     <a href="#"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
@@ -300,320 +301,188 @@
     </header>
 
     <!-- Hero Slider -->
-    <section id="hero-slider"
-        class="relative w-[calc(100%-120px)] h-[500px] md:h-[800px] bg-dark overflow-hidden group">
-        <!-- Slides will be inserted here or managed via JS. We define them statically for simplicity and toggle visibility. -->
+    <section id="banner" class="relative overflow-hidden group bg-[url(about-header-bg.png)] bg-cover bg-center h-[400px] md:h-[400px]
+        flex items-center">
+        <div class="absolute inset-0 z-1 
+    bg-gradient-to-r from-black/90 to-black/0 
+    md:from-black/95 md:to-black/0">
+        </div>
+        <div class="container mx-auto px-6 md:px-12 relative z-10 px-4">
+            <h1 class="text-white text-3xl md:text-5xl font-black mb-6 leading-tight">
+                Бидний тухай
+            </h1>
 
-        <!-- Slide 1 -->
-        <div class="slide active absolute inset-0 w-full h-full" data-index="0">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <img src="structural-engineer-foreman-worker-with-blueprints-discuss-inspecting-outdoors-building 1.png"
-                class="w-full h-full object-cover animate-kenburns" alt="Construction">
-            <div class="absolute inset-0 z-20 flex items-center">
-                <div class="container mx-auto px-6 md:px-12 relative">
-                    <p class="text-primary font-bold uppercase tracking-widest mb-2 slide-content-item delay-300">БИД
-                        БҮТЭЭНЭ, ТАНЬД АМЖИЛТЫГ АВЧИРНА</p>
-                    <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-2 slide-content-item delay-500">
-                        ЧАНАРААР БҮТЭЭЖ,</h2>
-                    <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 slide-content-item delay-500">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">ҮНЭ</span>
-                        <span class="text-primary">ЦЭНЭЭР МӨНХӨЛНӨ</span>
-                    </h2>
-                    <p class="text-gray-300 max-w-xl text-lg mb-8 slide-content-item delay-700">Барилгын салбарт
-                        тэргүүлэгч байр суурийг эзэлж, харилцагчдынхаа итгэлийг даасан бүтээн байгуулалтыг бид
-                        цогцлооно.</p>
-                    <div class="flex gap-4 slide-content-item delay-700">
-                        <button
-                            class="bg-primary hover:bg-red-700 text-white px-8 py-3 font-bold uppercase text-sm tracking-wider transition-colors flex items-center group/btn">
-                            Дэлгэрэнгүй <i data-lucide="arrow-right"
-                                class="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                        </button>
-                        <button
-                            class="border border-white/30 hover:bg-white hover:text-dark text-white px-8 py-3 font-bold uppercase text-sm tracking-wider transition-all">Холбоо
-                            барих</button>
-                    </div>
-                </div>
-            </div>
+            <!-- Орчин үеийн гоё Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm md:text-base uppercase" aria-label="Breadcrumb">
+                <a href="/" class="text-primary hover:text-white transition flex items-center gap-2">
+                    <span>Нүүр</span>
+                </a>
+
+                <span class="text-white">
+                    <i data-lucide="chevrons-right" class="w-5 h-5"></i>
+                </span>
+
+                <span class="text-white font-medium">Бидний тухай</span>
+            </nav>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="slide absolute inset-0 w-full h-full" data-index="1">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
-                class="w-full h-full object-cover animate-kenburns" alt="Construction">
-            <div class="absolute inset-0 z-20 flex items-center">
-                <div class="container mx-auto px-6 md:px-12 relative">
-                    <div class="w-1 h-16 bg-primary mb-6 slide-content-item delay-100"></div>
-                    <p class="text-primary font-bold uppercase tracking-widest mb-2 slide-content-item delay-300">БИД
-                        БҮТЭЭНЭ, ТАНЬД АМЖИЛТЫГ АВЧИРНА</p>
-                    <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-2 slide-content-item delay-500">
-                        ШИНЭ ИРЭЭДҮЙГ</h2>
-                    <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 slide-content-item delay-500">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">БИД</span>
-                        <span class="text-primary">БҮТЭЭЛЦЭНЭ</span>
-                    </h2>
-                    <p class="text-gray-300 max-w-xl text-lg mb-8 slide-content-item delay-700">Олон улсын стандартад
-                        нийцсэн чанартай барилга угсралт, инженерийн шийдлүүд.</p>
-                    <div class="flex gap-4 slide-content-item delay-700">
-                        <button
-                            class="bg-primary hover:bg-red-700 text-white px-8 py-3 font-bold uppercase text-sm tracking-wider transition-colors flex items-center group/btn">
-                            Дэлгэрэнгүй <i data-lucide="arrow-right"
-                                class="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
-                        </button>
+    </section>
+    <!-- ======= 1-р SECTION: Туршлагатай компани ======= -->
+    <section class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+
+                <!-- Зүүн тал – Зураг + Тоо -->
+                <div class="relative">
+
+                    <img src="about.png" class="w-full">
+                    <div class="absolute top-0 right-0 bg-primary text-white 
+                     w-[170px] h-[220px] md:w-[260px] md:h-[340px] 
+                     flex flex-col gap-5 items-center justify-center text-center 
+                     font-black text-5xl md:text-9xl leading-none">
+                        <span>10+</span>
+                        <p class="text-xs md:text-2xl font-bold uppercase tracking-wider">
+                            жилийн<br>туршлагатай<br>компани</p>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Slide 3 -->
-        <div class="slide absolute inset-0 w-full h-full" data-index="2">
-            <div class="absolute inset-0 bg-black/50 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1590644365607-1c5a38fc6525?q=80&w=2069&auto=format&fit=crop"
-                class="w-full h-full object-cover animate-kenburns" alt="Construction">
-            <div class="absolute inset-0 z-20 flex items-center">
-                <div class="container mx-auto px-6 md:px-12 relative">
-                    <div class="w-1 h-16 bg-primary mb-6 slide-content-item delay-100"></div>
-                    <p class="text-primary font-bold uppercase tracking-widest mb-2 slide-content-item delay-300">БИД
-                        БҮТЭЭНЭ, ТАНЬД АМЖИЛТЫГ АВЧИРНА</p>
-                    <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-2 slide-content-item delay-500">
-                        АЮУЛГҮЙ БАЙДАЛ</h2>
-                    <h2
-                        class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 slide-content-item delay-500">
-                        <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">БИДНИЙ</span>
-                        <span class="text-primary">ТЭРГҮҮЛЭХ ЧИГЛЭЛ</span>
-                    </h2>
-                    <p class="text-gray-300 max-w-xl text-lg mb-8 slide-content-item delay-700">Хөдөлмөрийн аюулгүй
-                        байдлыг дээд зэргээр хангаж, байгаль орчинд ээлтэй бүтээн байгуулалт.</p>
-                    <div class="flex gap-4 slide-content-item delay-700">
-                        <button
-                            class="bg-primary hover:bg-red-700 text-white px-8 py-3 font-bold uppercase text-sm tracking-wider transition-colors flex items-center group/btn">
-                            Дэлгэрэнгүй <i data-lucide="arrow-right"
-                                class="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform"></i>
+                <!-- Баруун тал – Текст + Давуу талууд -->
+                <div class="space-y-20">
+                    <div class="space-y-8">
+                        <p class="text-primary tracking-wide text-sm">Митайм Монголиа</p>
+                        <h2 class="text-3xl md:text-5xl font-black text-dark leading-tight">
+                            Бид таны мөрөөдлийг бодит болгохын урьдчилж эрмэлздэг.
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            Олон орчин үеийн барилгын компаниуд тогтвортой барилгын аргууд дээр анхаарч, байгальд ээлтэй
+                            материал, эрчим хүчний хэмнэлттэй систем болон байгаль орчинд мэдрэмжтэй загварыг ашиглан
+                            төслүүдийнхээ экологийн нөлөөллийг бууруулдаг.
+                        </p>
+                    </div>
+                    <div class="space-y-16">
+
+                        <!-- Давуу талууд -->
+                        <div class="space-y-6">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-primary/10 p-2">
+                                    <img src="olon-ulsiin.png" />
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg uppercase">Олон улсын үйлчилгээ</h4>
+                                    <p class="text-gray-600 text-sm">Тэд үйлчлүүлэгчдэдээ ил тод өртгийн тооцоо өгч,
+                                        тохиролцсон нөхцөлийг чандлан даган ажилладаг.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <hr class="h-px my-8 bg-black/10 border-0">
+
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 bg-primary/10 p-2">
+                                    <img src="shildeg.png" />
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg uppercase">Шилдэг компани</h4>
+                                    <p class="text-gray-600 text-sm">Найдвартай барилгын компани нь төсөв ба цагийн
+                                        хуваарийг үр дүнтэй удирдахад чадварлаг байдаг.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="bg-primary hover:bg-red-700 text-white px-8 py-4 font-bold uppercase transition">
+                            Илүү ихийг
                         </button>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Vertical Dots Navigation -->
-        <div class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-4" id="slider-dots">
-            <div class="w-[1px] h-20 ml-1.5
-  border-[1px] border-solid
-  [border-image-source:linear-gradient(0deg,#FF4C13_0%,rgba(255,76,19,0)_107.14%)]
-  [border-image-slice:1]
-"></div>
-
-            <button class="slider-dot relative w-3 h-3 rounded-full bg-primary scale-125 transition-all duration-300"
-                data-index="0">
-                <span
-                    class="absolute left-6 top-1/2 -translate-y-1/2 text-white text-[10px] font-bold tracking-wider opacity-100 whitespace-nowrap">01</span>
-            </button>
-            <button
-                class="slider-dot relative w-3 h-3 rounded-full bg-primary hover:bg-white transition-all duration-300"
-                data-index="1">
-            </button>
-            <button
-                class="slider-dot relative w-3 h-3 rounded-full bg-primary hover:bg-white transition-all duration-300"
-                data-index="2">
-            </button>
-            <div class="w-[1px] h-20 ml-1.5
-  border-[1px] border-solid
-  [border-image-source:linear-gradient(180deg,#FF4C13_0%,rgba(255,76,19,0)_107.14%)]
-  [border-image-slice:1]
-"></div>
         </div>
     </section>
 
-    <!-- Timeline Section -->
-    <section class="py-20 bg-gray-50 bg-[url(services.png)] bg-no-repeat">
-        <div class="container mx-auto px-4 mb-12">
-            <div class="flex flex-col items-center md:items-start mb-10">
-                <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2">МИТАЙМ МОНГОЛ</span>
-                <h2 class="text-3xl md:text-4xl font-black text-dark">Түүхэн замнал</h2>
+    <!-- ======= 2-р SECTION: Бидний үзэл баримтлал ======= -->
+    <section class="relative py-20 md:py-32 overflow-hidden bg-[url(about-header-bg.png)] bg-cover bg-center">
+        <div class="absolute inset-0 z-1 
+    bg-gradient-to-r from-black/80 from-70% to-black/0">
+        </div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="mb-32">
+                <h2 class="text-2xl md:text-4xl font-black text-white mb-6">
+                    Бид таны мөрөөдлийг бодит болгохыг үргэлж эрмэлздэг.
+                </h2>
             </div>
 
-            <!-- Timeline Navigation -->
-            <div class="relative flex items-center justify-center md:justify-between pb-8 mb-12 max-w-4xl mx-auto">
-                <button id="scroll-left"
-                    class="hidden md:flex w-8 h-8 items-center justify-center text-gray-500 hover:text-primary transition-colors mt-7">
-                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                </button>
-
-                <div class="flex space-x-8 justify-center md:space-x-16 overflow-x-auto no-scrollbar px-4 pb-2 w-full relative after:absolute after:w-full after:h-[1px] after:bg-dark after:bottom-0 after:-translate-y-3 after:z-[-1px]"
-                    id="timeline-years">
-                    <!-- Years injected via JS or hardcoded -->
-                    <button
-                        class="timeline-year active relative flex flex-col items-center group transition-all duration-300"
-                        data-year="2019" data-target="card-1">
-                        <span class="text-lg md:text-xl font-bold font-mono mb-2">2019</span>
-                        <div class="timeline-dot w-3 h-3 rounded-full border-2 transition-colors duration-300 z-10">
+            <!-- 3 карт -->
+            <div class="grid md:grid-cols-3 gap-8 mx-auto">
+                <!-- Карт 1 -->
+                <div class="group">
+                    <div class="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 px-20 text-center border border-white/20 
+                      hover:bg-white/20 hover:border-primary transition-all duration-500 
+                      hover:scale-105 hover:shadow-2xl">
+                        <!-- <div class="w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
+                        group-hover:bg-primary group-hover:scale-110 transition">
+                            <i data-lucide="target" class="w-10 h-10 text-primary group-hover:text-white"></i>
+                        </div> -->
+                        <div class="-mt-[70px] w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
+                        group-hover:bg-primary1 group-hover:scale-110 transition">
+                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M23.0769 1.92308C23.0769 0.860991 23.9379 0 25 0C26.0621 0 26.9231 0.860991 26.9231 1.92308V3.93239C37.0714 4.84691 45.1531 12.9286 46.0676 23.0769H48.0769C49.139 23.0769 50 23.9379 50 25C50 26.0621 49.139 26.9231 48.0769 26.9231H46.0676C45.1531 37.0714 37.0714 45.1531 26.9231 46.0676V48.0769C26.9231 49.139 26.0621 50 25 50C23.9379 50 23.0769 49.139 23.0769 48.0769V46.0676C12.9286 45.1531 4.84691 37.0714 3.93239 26.9231H1.92308C0.860991 26.9231 0 26.0621 0 25C0 23.9379 0.860991 23.0769 1.92308 23.0769H3.93239C4.84691 12.9286 12.9286 4.84691 23.0769 3.93239V1.92308ZM23.0769 9.61538C23.0769 10.6775 23.9379 11.5385 25 11.5385C26.0621 11.5385 26.9231 10.6775 26.9231 9.61538V7.79794C34.9454 8.68476 41.3152 15.0546 42.2021 23.0769H40.3846C39.3225 23.0769 38.4615 23.9379 38.4615 25C38.4615 26.0621 39.3225 26.9231 40.3846 26.9231H42.2021C41.3152 34.9454 34.9454 41.3152 26.9231 42.2021V40.3846C26.9231 39.3225 26.0621 38.4615 25 38.4615C23.9379 38.4615 23.0769 39.3225 23.0769 40.3846V42.2021C15.0546 41.3152 8.68476 34.9454 7.79794 26.9231H9.61538C10.6775 26.9231 11.5385 26.0621 11.5385 25C11.5385 23.9379 10.6775 23.0769 9.61538 23.0769H7.79794C8.68476 15.0546 15.0546 8.68476 23.0769 7.79794V9.61538Z"
+                                    fill="#D61A25" />
+                                <path opacity="0.3"
+                                    d="M17.3076 24.9999C17.3076 20.7516 20.7516 17.3076 24.9999 17.3076C29.2483 17.3076 32.6922 20.7516 32.6922 24.9999C32.6922 29.2483 29.2483 32.6922 24.9999 32.6922C20.7516 32.6922 17.3076 29.2483 17.3076 24.9999Z"
+                                    fill="#D61A25" />
+                            </svg>
                         </div>
-                        <!-- <div class="absolute bottom-[5px] w-full h-[2px] bg-gray-200 -z-0"></div> -->
-                    </button>
-                    <button class="timeline-year relative flex flex-col items-center group transition-all duration-300"
-                        data-year="2020" data-target="card-2">
-                        <span class="text-lg md:text-xl font-bold font-mono mb-2">2020</span>
-                        <div class="timeline-dot w-3 h-3 rounded-full border-2 transition-colors duration-300 z-10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Эрхэм зорилго</h3>
+                        <p class="text-white leading-relaxed">
+                            Үргэлж шинийг эрэлхийлж, чанарыг эрхэмлэн, харилцагчдынхаа бүтээмжийг дээшлүүлж, зорилгодоо
+                            хүрэхэд нь тусална.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Карт 2 -->
+                <div class="group">
+                    <div class="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 px-20 text-center border border-white/20 
+                      hover:bg-white/20 hover:border-primary transition-all duration-500 
+                      hover:scale-105 hover:shadow-2xl">
+
+                        <div class="-mt-[70px] w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
+                        group-hover:bg-primary1 group-hover:scale-110 transition">
+                            <svg width="49" height="50" viewBox="0 0 49 50" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.37183 6.85339C7.37183 4.42433 8.97114 2.23599 11.3532 1.61868C16.2002 0.362618 21.1778 -0.162436 26.134 0.0435198C19.7664 3.17772 15.3847 9.73101 15.3847 17.3077C15.3847 27.6169 24.4026 36.0314 34.6449 36.5164C32.2342 38.5738 29.2492 39.9467 25.9617 40.3354V46.1538H29.5675C30.6295 46.1538 31.4905 47.0148 31.4905 48.0769C31.4905 49.139 30.6295 50 29.5675 50H18.5097C17.4476 50 16.5866 49.139 16.5866 48.0769C16.5866 47.0148 17.4476 46.1538 18.5097 46.1538H22.1155V40.3354C14.979 39.4918 9.26841 34.0098 7.76204 26.9565C7.36337 27.0346 6.95163 27.0757 6.53048 27.0757C2.85926 27.0757 0 24.0108 0 20.3767V14.6456C0 11.0116 2.85926 7.94668 6.53048 7.94668C6.81562 7.94668 7.09645 7.9655 7.37183 8.00191V6.85339ZM7.37183 11.9354C7.1065 11.8424 6.82386 11.7928 6.53048 11.7928C5.11251 11.7928 3.84617 13.0044 3.84617 14.6456V20.3767C3.84617 22.018 5.11251 23.2295 6.53048 23.2295C6.8238 23.2295 7.10646 23.18 7.37183 23.087V11.9354Z"
+                                    fill="#D61A25" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M40.3147 26.9564C40.7134 27.0346 41.1251 27.0756 41.5463 27.0756C45.2175 27.0756 48.0768 24.0107 48.0768 20.3767V14.6456C48.0768 11.0115 45.2175 7.94661 41.5463 7.94661C41.2611 7.94661 40.9803 7.96543 40.7049 8.00185V6.85333C40.7049 4.42426 39.1056 2.23592 36.7235 1.61862C33.2421 0.716441 29.6934 0.191387 26.1336 0.043457C19.7659 3.17766 15.3843 9.73095 15.3843 17.3076C15.3843 27.6168 24.4022 36.0313 34.6445 36.5163C37.4669 34.1075 39.5023 30.7605 40.3147 26.9564ZM41.5463 23.2295C41.253 23.2295 40.9703 23.1799 40.7049 23.0869V11.9354C40.9702 11.8423 41.2529 11.7928 41.5463 11.7928C42.9642 11.7928 44.2306 13.0043 44.2306 14.6456V20.3767C44.2306 22.0179 42.9642 23.2295 41.5463 23.2295Z"
+                                    fill="#D61A25" />
+                            </svg>
                         </div>
-                        <!-- <div class="absolute bottom-[5px] w-full h-[2px] bg-gray-200 -z-0"></div> -->
-                    </button>
-                    <button class="timeline-year relative flex flex-col items-center group transition-all duration-300"
-                        data-year="2021" data-target="card-3">
-                        <span class="text-lg md:text-xl font-bold font-mono mb-2">2021</span>
-                        <div class="timeline-dot w-3 h-3 rounded-full border-2 transition-colors duration-300 z-10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Үнэт зүйл</h3>
+                        <p class="text-white leading-relaxed">
+                            Бид үнэт зүйлдээ үндэслэн хамтын амжилт, тогтвортой ирээдүйг бүтээнэ.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Карт 3 -->
+                <div class="group">
+                    <div class="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 px-20 text-center border border-white/20 
+                      hover:bg-white/20 hover:border-primary transition-all duration-500 
+                      hover:scale-105 hover:shadow-2xl">
+                        <div class="-mt-[70px] w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
+                        group-hover:bg-primary1 group-hover:scale-110 transition">
+                            <i data-lucide="eye" class="w-10 h-10 text-primary group-hover:text1-white"></i>
                         </div>
-                        <!-- <div class="absolute bottom-[5px] w-full h-[2px] bg-gray-200 -z-0"></div> -->
-                    </button>
-                    <button class="timeline-year relative flex flex-col items-center group transition-all duration-300"
-                        data-year="2022" data-target="card-4">
-                        <span class="text-lg md:text-xl font-bold font-mono mb-2">2022</span>
-                        <div class="timeline-dot w-3 h-3 rounded-full border-2 transition-colors duration-300 z-10">
-                        </div>
-                        <!-- <div class="absolute bottom-[5px] w-full h-[2px] bg-gray-200 -z-0"></div> -->
-                    </button>
-                    <button class="timeline-year relative flex flex-col items-center group transition-all duration-300"
-                        data-year="2023" data-target="card-5">
-                        <span class="text-lg md:text-xl font-bold font-mono mb-2">2023</span>
-                        <div class="timeline-dot w-3 h-3 rounded-full border-2 transition-colors duration-300 z-10">
-                        </div>
-                        <!-- <div class="absolute bottom-[5px] w-full h-[2px] bg-gray-200 -z-0"></div> -->
-                    </button>
-                    <button class="timeline-year relative flex flex-col items-center group transition-all duration-300"
-                        data-year="2024" data-target="card-6">
-                        <span class="text-lg md:text-xl font-bold font-mono mb-2">2024</span>
-                        <div class="timeline-dot w-3 h-3 rounded-full border-2 transition-colors duration-300 z-10">
-                        </div>
-                        <!-- <div class="absolute bottom-[5px] w-full h-[2px] bg-gray-200 -z-0"></div> -->
-                    </button>
+                        <h3 class="text-2xl font-bold text-white mb-4">Алсын хараа</h3>
+                        <p class="text-white leading-relaxed">
+                            Цахим засгийн болон цахим бизнесийн шийдлийг дэлхийн түвшинд боловсруулна.
+                        </p>
+                    </div>
                 </div>
-
-                <button id="scroll-right"
-                    class="hidden md:flex w-8 h-8 items-center justify-center text-gray-500 hover:text-primary transition-colors mt-7">
-                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                </button>
-            </div>
-
-            <!-- Cards Container -->
-            <div id="timeline-container"
-                class="flex overflow-x-auto overflow-y-visible gap-8 pb-10 px-4 no-scrollbar snap-x snap-mandatory scroll-smooth">
-
-                <!-- Card 1 – margin-left байхгүй (эхнийх учраас) -->
-                <div id="card-1" class="w-[300px] md:w-[400px] mb-[500px] p-5 flex flex-col gap-2.5 relative snap-center flex-shrink-0 bg-white shadow-lg rounded-lg group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl mt-0
-        after:absolute after:w-6 after:h-6 after:rotate-45 after:bg-white after:-bottom-3 after:left-10">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=2070&auto=format&fit=crop"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="2023">
-                    </div>
-                    <div class="relative">
-                        <h3 class="text-xl font-bold text-dark mb-3 mt-2">2023.03.16</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Манай компани анх үүсгэн байгуулагдаж,
-                            барилгын салбарт анхны алхамаа хийлээ.</p>
-                    </div>
-                    <div
-                        class="absolute -bottom-20 left-0 bg-primary text-white text-md font-bold px-3 py-1 rounded shadow-md">
-                        2023.03.16</div>
-                </div>
-
-                <!-- Card 2–6 – Бүгдэд нь ml-[-100px] буюу margin-left: -200px нэмсэн -->
-                <div id="card-2" class="w-[300px] md:w-[400px] mt-[500px] p-5 flex flex-col gap-2.5 relative snap-center flex-shrink-0 bg-white shadow-lg rounded-lg group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ml-[-100px]
-        after:absolute after:w-6 after:h-6 after:rotate-45 after:bg-white after:-top-3 after:left-10">
-                    <!-- ... доторх контент ижил хэвээр ... -->
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="2022">
-                    </div>
-                    <div class="relative">
-                        <h3 class="text-xl font-bold text-dark mb-3 mt-2">2022.07.22</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Улаанбаатар хотод 16 давхар орон сууцны
-                            цогцолбор төслийг амжилттай хэрэгжүүлж эхлэв.</p>
-                    </div>
-                    <div
-                        class="absolute -top-20 left-0 bg-primary text-white text-md font-bold px-3 py-1 rounded shadow-md">
-                        2022.07.22</div>
-                </div>
-
-                <div id="card-3" class="w-[300px] md:w-[400px] mb-[500px] p-5 flex flex-col gap-2.5 relative snap-center flex-shrink-0 bg-white shadow-lg rounded-lg group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ml-[-100px]
-        after:absolute after:w-6 after:h-6 after:rotate-45 after:bg-white after:-bottom-3 after:left-10">
-                    <!-- контент... -->
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="2021">
-                    </div>
-                    <div class="relative">
-                        <h3 class="text-xl font-bold text-dark mb-3 mt-2">2021.05.23</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Олон улсын чанарын удирдлагын тогтолцоог
-                            нэвтрүүлж, ISO 9001 баталгаажуулалт авлаа.</p>
-                    </div>
-                    <div
-                        class="absolute -bottom-20 left-0 bg-primary text-white text-md font-bold px-3 py-1 rounded shadow-md">
-                        2021.05.23</div>
-                </div>
-
-                <div id="card-4" class="w-[300px] md:w-[400px] mt-[500px] p-5 flex flex-col gap-2.5 relative snap-center flex-shrink-0 bg-white shadow-lg rounded-lg group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ml-[-100px]
-        after:absolute after:w-6 after:h-6 after:rotate-45 after:bg-white after:-top-3 after:left-10">
-                    <!-- контент... -->
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?q=80&w=1997&auto=format&fit=crop"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="2022">
-                    </div>
-                    <div class="relative">
-                        <h3 class="text-xl font-bold text-dark mb-3 mt-2">2022.07.22</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Дархан, Эрдэнэт хотуудад салбар нэгжээ
-                            нээж, үйл ажиллагаагаа өргөжүүлэв.</p>
-                    </div>
-                    <div
-                        class="absolute -top-20 left-0 bg-primary text-white text-md font-bold px-3 py-1 rounded shadow-md">
-                        2022.07.22</div>
-                </div>
-
-                <div id="card-5" class="w-[300px] md:w-[400px] mb-[500px] p-5 flex flex-col gap-2.5 relative snap-center flex-shrink-0 bg-white shadow-lg rounded-lg group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ml-[-100px]
-        after:absolute after:w-6 after:h-6 after:rotate-45 after:bg-white after:-bottom-3 after:left-10">
-                    <!-- контент... -->
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="2023">
-                    </div>
-                    <div class="relative">
-                        <h3 class="text-xl font-bold text-dark mb-3 mt-2">2023.09.20</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Барилга хот байгуулалтын яамнаас "Оны
-                            шилдэг бүтээн байгуулалт" шагнал хүртэв.</p>
-                    </div>
-                    <div
-                        class="absolute -bottom-20 left-0 bg-primary text-white text-md font-bold px-3 py-1 rounded shadow-md">
-                        2023.09.20</div>
-                </div>
-
-                <div id="card-6" class="w-[300px] md:w-[400px] mt-[500px] p-5 flex flex-col gap-2.5 relative snap-center flex-shrink-0 bg-white shadow-lg rounded-lg group transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ml-[-100px]
-        after:absolute after:w-6 after:h-6 after:rotate-45 after:bg-white after:-top-3 after:left-10">
-                    <!-- контент... -->
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            alt="2024">
-                    </div>
-                    <div class="relative">
-                        <h3 class="text-xl font-bold text-dark mb-3 mt-2">2024.04.11</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-4">Япон, Солонгос улсын компаниудтай хамтран
-                            ажиллах гэрээ байгууллаа.</p>
-                    </div>
-                    <div
-                        class="absolute -top-20 left-0 bg-primary text-white text-md font-bold px-3 py-1 rounded shadow-md">
-                        2024.04.11</div>
-                </div>
-
-                <!-- Spacer -->
-                <div class="min-w-[100px] flex-shrink-0"></div>
             </div>
         </div>
     </section>

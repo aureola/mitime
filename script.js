@@ -46,21 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
       // Update Dots
       dots.forEach((dot, i) => {
         // Reset styles for all dots
-        dot.classList.remove("bg-primary", "scale-125");
+        dot.classList.remove("bg-primary", "scale-125", "before:w-5", "before:h-5", "before:inline-block", "before:border", "before:border-0.5", "before:border-primary", "before:rounded-xl", "before:-translate-y-1", "before:-translate-x-1");
         dot.classList.add("bg-primary");
         dot.innerHTML = ""; // Clear existing content (numbers)
 
         if (i === currentSlide) {
           // Active dot styles
           dot.classList.remove("bg-primary");
-          dot.classList.add("bg-primary", "scale-125");
+          dot.classList.add("bg-primary", "scale-125", "before:w-5", "before:h-5", "before:inline-block", "before:border", "before:border-0.5", "before:border-primary", "before:rounded-xl", "before:-translate-y-1", "before:-translate-x-1");
 
-          // Add number label
-          const numberSpan = document.createElement("span");
-          numberSpan.className =
-            "absolute left-6 top-1/2 -translate-y-1/2 text-white text-[10px] font-bold tracking-wider opacity-100 whitespace-nowrap";
-          numberSpan.innerText = `0${i + 1}`;
-          dot.appendChild(numberSpan);
+          // // Add number label
+          // const numberSpan = document.createElement("span");
+          // numberSpan.className =
+          //   "absolute left-6 top-1/2 -translate-y-1/2 text-white text-[10px] font-bold tracking-wider opacity-100 whitespace-nowrap";
+          // numberSpan.innerText = `0${i + 1}`;
+          // dot.appendChild(numberSpan);
         }
       });
     }

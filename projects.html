@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mitime Mongolia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .red-square {
+            content: "";
+            position: absolute;
+            background: #D61A25;
+            content: "";
+            top: -300px;
+            right: -280px;
+            width: 800px;
+            height: 800px;
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Roboto Condensed', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#D61A25',
+                        dark: '#1B2533',
+                    },
+                    keyframes: {
+                        kenburns: {
+                            '0%': { transform: 'scale(1)' },
+                            '100%': { transform: 'scale(1.1)' }
+                        }
+                    },
+                    animation: {
+                        kenburns: 'kenburns 20s infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Slider Transitions */
+        .slide {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        /* Staggered Animations for Content */
+        .slide-content-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s ease-out;
+        }
+
+        /* Only animate when parent is active */
+        .slide.active .slide-content-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide.active .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .slide.active .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        .slide.active .delay-500 {
+            transition-delay: 500ms;
+        }
+
+        .slide.active .delay-700 {
+            transition-delay: 700ms;
+        }
+
+        /* Timeline Active State */
+        .timeline-year.active {
+            color: #D61A25;
+            transform: scale(1.1);
+        }
+
+        .timeline-dot {
+            background-color: white;
+            border-color: #D1D5DB;
+        }
+
+        .timeline-year.active .timeline-dot {
+            background-color: #D61A25;
+            border-color: #D61A25;
+        }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+
+<body class="font-sans text-dark bg-white overflow-x-hidden">
+
+    <div class="red-square"></div>
+    <!-- Top Bar -->
+    <header class="w-full z-50 relative">
+        <!-- Top black strip -->
+        <div class="bg-black text-white text-xs py-3 px-4">
+            <div class="container max-w-[1200px] mx-auto flex justify-start items-center">
+                <span class="opacity-80 hidden md:inline">Митайм -д тавтай морил — бид бүтээж, сэргээн,
+                    төгөлдөржүүлнэ.</span>
+                <span class="opacity-80 md:hidden">МИНТАЙМ
+                    МОНГОЛИА</span>
+
+                <!-- Language Switcher – Зөвхөн HOVER дээр ажиллана -->
+                <div class="relative group">
+                    <!-- Гол товч (hover хийхэд dropdown гарна) -->
+                    <div class="border-l border-gray-700 pl-4 flex items-center cursor-pointer select-none">
+                        <div class="flex items-center gap-2 text-white/80 hover:text-white transition">
+                            <i data-lucide="globe" class="w-4 h-4"></i>
+                            <span class="text-sm">English</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200 
+                    group-hover:rotate-180"></i>
+                        </div>
+                    </div>
+
+                    <!-- Hover дээр гарч ирэх dropdown -->
+                    <div class="absolute top-full left-0 mt-3 w-36 bg-white shadow-2xl 
+                opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+                transition-all duration-300 ease-out transform translate-y-2 
+                group-hover:translate-y-0 z-50 overflow-hidden border border-gray-100">
+
+                        <a href="#"
+                            class="flex items-center gap-3 px-3 py-3.5 text-gray-700 hover:bg-primary hover:text-white transition">
+                            <i data-lucide="globe" class="w-4 h-4 opacity-80"></i>
+                            <span class="font-medium">English</span>
+                        </a>
+                        <a href="#"
+                            class="flex items-center gap-3 px-3 py-3.5 text-gray-700 hover:bg-primary hover:text-white transition">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                            <span class="font-medium">Монгол</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 ml-auto">
+                    <div class="flex space-x-3">
+                        <i data-lucide="facebook" class="w-4 h-4 cursor-pointer hover:text-primary"></i>
+                        <i data-lucide="twitter" class="w-4 h-4 cursor-pointer hover:text-primary"></i>
+                        <i data-lucide="linkedin" class="w-4 h-4 cursor-pointer hover:text-primary"></i>
+                        <i data-lucide="instagram" class="w-4 h-4 cursor-pointer hover:text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header Information Area -->
+        <div class="relative">
+            <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-primary to-transparent opacity-5 z-0">
+            </div>
+            <div
+                class="container mx-auto py-6 px-4 flex flex-col md:flex-row justify-between items-center relative z-10">
+                <!-- Logo -->
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="flex flex-col">
+                        <div class="flex items-center gap-2">
+                            <a href="index.html"><img src="logo.png" /></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Blocks -->
+                <div class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-0 text-white">
+                    <div class="flex items-center px-2 md:px-6 md:border-r border-gray-200">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center mr-3 shadow-lg">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[10px] uppercase">Холбоо барих</p>
+                            <p class="text-sm font-bold">7777-8888</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center px-2 md:px-6 md:border-r border-gray-200">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center mr-3 shadow-lg">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[10px] uppercase">И-мэйл хаяг</p>
+                            <p class="text-sm font-bold">info@mintime.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center px-2 md:px-6 hidden lg:flex">
+                        <div
+                            class="w-10 h-10 rounded-full bg-white text-primary flex items-center justify-center mr-3 shadow-lg">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[10px] uppercase">Цагийн хуваарь</p>
+                            <p class="text-sm font-bold">Да - Ба: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar -->
+        <div class="bg-black text-white relative max-w-[1200px] mx-auto">
+            <div class=" container mx-auto flex justify-between items-center relative z-20">
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex justify-between items-center h-full">
+                    <a href=" #"
+                        class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">
+                        БИДНИЙ ТУХАЙ</a>
+                    <a href="activity.html"
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
+                        ажиллагаа</a>
+                    <a href="#"
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Хэрэгжүүлж
+                        буй төслүүд</a>
+                    <a href="#"
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Харилцагчид</a>
+                    <a href="#"
+                        class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Мэдээ
+                        мэдээлэл</a>
+                </nav>
+
+                <!-- Search and Mobile Toggle -->
+                <div class="flex items-center ml-auto">
+                    <!-- <div class="hidden md:flex bg-white items-center py-1 px-3 ml-4 rounded-sm">
+                        <input type="text" placeholder="Хайх..."
+                            class="text-black text-sm outline-none w-24 lg:w-48 placeholder-gray-400" />
+                        <i data-lucide="search" class="w-4 h-4 text-primary"></i>
+                    </div> -->
+
+                    <button id="mobile-menu-btn" class="hidden md:flex p-[15px] bg-white text-[#D61A25] uppercase">
+                        Нэвтрэх
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-4 text-white">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+                <a href="#"
+                    class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">БИДНИЙ
+                    ТУХАЙ</a>
+                <a href="#"
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
+                    ажиллагаа</a>
+                <a href="#"
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Хэрэгжүүлж
+                    буй төслүүд</a>
+                <a href="#"
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Харилцагчид</a>
+                <a href="#"
+                    class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Мэдээ
+                    мэдээлэл</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="banner" class="relative overflow-hidden group bg-[url(about-header-bg.png)] bg-cover bg-center h-[400px] md:h-[400px]
+        flex items-center">
+        <div class="absolute inset-0 z-1 
+    bg-gradient-to-r from-black/90 to-black/0 
+    md:from-black/95 md:to-black/0">
+        </div>
+        <div class="container mx-auto px-6 md:px-12 relative z-10 px-4">
+            <h1 class="text-white text-3xl md:text-5xl font-black mb-6 leading-tight">
+                Хэрэгжүүлж буй төслүүд
+            </h1>
+
+            <!-- Орчин үеийн гоё Breadcrumb -->
+            <nav class="flex items-center gap-2 text-sm md:text-base uppercase" aria-label="Breadcrumb">
+                <a href="/" class="text-primary hover:text-white transition flex items-center gap-2">
+                    <span>Нүүр</span>
+                </a>
+
+                <span class="text-white">
+                    <i data-lucide="chevrons-right" class="w-5 h-5"></i>
+                </span>
+
+                <span class="text-white font-medium">Хэрэгжүүлж буй төслүүд</span>
+            </nav>
+        </div>
+
+    </section>
+
+
+
+    <section class="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-12">
+
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 pl-0 md:pl-[88px]">
+            <div>
+                <h4 class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest mb-3">
+                    Митайм монголиа
+                </h4>
+                <h2 class="text-[#1a1a1a] text-3xl md:text-4xl font-bold leading-tight">
+                    Сүүлд хийж гүйцэтгэсэн төслүүд
+                </h2>
+            </div>
+            <button
+                class="hidden md:block bg-[#E31E24] hover:bg-[#c4191f] text-white text-[11px] font-bold py-3.5 px-7 uppercase tracking-widest transition-colors duration-300 shadow-md">
+                Бүх төслүүд
+            </button>
+        </div>
+
+        <div class="relative">
+            <!-- Navigation Buttons -->
+            <div class="absolute left-0 top-1/2 -translate-y-[60%] z-20 flex-col gap-3 hidden md:flex">
+                <button id="prevBtn"
+                    class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 bg-white hover:bg-gray-50">
+                    <svg class="w-5 h-5 text-[#E31E24]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <button id="nextBtn"
+                    class="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 bg-[#E31E24] text-white hover:bg-[#c4191f]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Slider Track -->
+            <div class="overflow-hidden ml-0 md:ml-[88px]">
+                <div id="sliderTrack" class="flex transition-transform duration-700 ease-out">
+
+                    <!-- Project 1 -->
+                    <div class="flex-shrink-0 px-3 project-item">
+                        <div class="group relative w-full h-full cursor-pointer">
+                            <div class="relative h-[420px] w-full overflow-hidden bg-gray-200">
+                                <img src="https://plus.unsplash.com/premium_photo-1661883964999-c1bcb57a7357?q=80&w=1128"
+                                    alt="Орчин үеийн вилла"
+                                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex items-center justify-center">
+                                        <div
+                                            class="absolute w-16 h-16 bg-[#E31E24]/30 rounded-full animate-pulse group-hover:bg-[#E31E24]/50 transition-colors">
+                                        </div>
+                                        <div
+                                            class="relative w-12 h-12 bg-[#E31E24] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="text-white w-4 h-4 ml-0.5" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative mx-5 -mt-12 bg-white p-6 shadow-xl z-10 min-h-[140px] flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-2">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span
+                                            class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest">Барилга</span>
+                                        <span class="text-gray-400 text-[11px]">2024.05.15</span>
+                                    </div>
+                                    <h3 class="text-[#1a1a1a] font-bold text-lg leading-snug w-[85%]">Орчин үеийн вилла
+                                    </h3>
+                                </div>
+                                <div class="absolute bottom-0 right-0">
+                                    <div
+                                        class="w-10 h-10 bg-[#E31E24] text-white flex items-center justify-center hover:bg-[#c4191f] transition-colors shadow-md">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="flex-shrink-0 px-3 project-item">
+                        <div class="group relative w-full h-full cursor-pointer">
+                            <div class="relative h-[420px] w-full overflow-hidden bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop"
+                                    alt="Үйлдвэрийн дизайн"
+                                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex items-center justify-center">
+                                        <div
+                                            class="absolute w-16 h-16 bg-[#E31E24]/30 rounded-full animate-pulse group-hover:bg-[#E31E24]/50 transition-colors">
+                                        </div>
+                                        <div
+                                            class="relative w-12 h-12 bg-[#E31E24] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="text-white w-4 h-4 ml-0.5" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative mx-5 -mt-12 bg-white p-6 shadow-xl z-10 min-h-[140px] flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-2">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span
+                                            class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest">Барилга</span>
+                                        <span class="text-gray-400 text-[11px]">2024.04.10</span>
+                                    </div>
+                                    <h3 class="text-[#1a1a1a] font-bold text-lg leading-snug w-[85%]">Үйлдвэрийн дизайн
+                                    </h3>
+                                </div>
+                                <div class="absolute bottom-0 right-0">
+                                    <div
+                                        class="w-10 h-10 bg-[#E31E24] text-white flex items-center justify-center hover:bg-[#c4191f] transition-colors shadow-md">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="flex-shrink-0 px-3 project-item">
+                        <div class="group relative w-full h-full cursor-pointer">
+                            <div class="relative h-[420px] w-full overflow-hidden bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop"
+                                    alt="Орон сууц"
+                                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex items-center justify-center">
+                                        <div
+                                            class="absolute w-16 h-16 bg-[#E31E24]/30 rounded-full animate-pulse group-hover:bg-[#E31E24]/50 transition-colors">
+                                        </div>
+                                        <div
+                                            class="relative w-12 h-12 bg-[#E31E24] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="text-white w-4 h-4 ml-0.5" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative mx-5 -mt-12 bg-white p-6 shadow-xl z-10 min-h-[140px] flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-2">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span
+                                            class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest">Барилга</span>
+                                        <span class="text-gray-400 text-[11px]">2024.03.22</span>
+                                    </div>
+                                    <h3 class="text-[#1a1a1a] font-bold text-lg leading-snug w-[85%]">Орон сууц</h3>
+                                </div>
+                                <div class="absolute bottom-0 right-0">
+                                    <div
+                                        class="w-10 h-10 bg-[#E31E24] text-white flex items-center justify-center hover:bg-[#c4191f] transition-colors shadow-md">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="flex-shrink-0 px-3 project-item">
+                        <div class="group relative w-full h-full cursor-pointer">
+                            <div class="relative h-[420px] w-full overflow-hidden bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop"
+                                    alt="Хаус"
+                                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex items-center justify-center">
+                                        <div
+                                            class="absolute w-16 h-16 bg-[#E31E24]/30 rounded-full animate-pulse group-hover:bg-[#E31E24]/50 transition-colors">
+                                        </div>
+                                        <div
+                                            class="relative w-12 h-12 bg-[#E31E24] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="text-white w-4 h-4 ml-0.5" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative mx-5 -mt-12 bg-white p-6 shadow-xl z-10 min-h-[140px] flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-2">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span
+                                            class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest">Барилга</span>
+                                        <span class="text-gray-400 text-[11px]">2024.02.05</span>
+                                    </div>
+                                    <h3 class="text-[#1a1a1a] font-bold text-lg leading-snug w-[85%]">Хаус</h3>
+                                </div>
+                                <div class="absolute bottom-0 right-0">
+                                    <div
+                                        class="w-10 h-10 bg-[#E31E24] text-white flex items-center justify-center hover:bg-[#c4191f] transition-colors shadow-md">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="flex-shrink-0 px-3 project-item">
+                        <div class="group relative w-full h-full cursor-pointer">
+                            <div class="relative h-[420px] w-full overflow-hidden bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop"
+                                    alt="Оффисын интерьер"
+                                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex items-center justify-center">
+                                        <div
+                                            class="absolute w-16 h-16 bg-[#E31E24]/30 rounded-full animate-pulse group-hover:bg-[#E31E24]/50 transition-colors">
+                                        </div>
+                                        <div
+                                            class="relative w-12 h-12 bg-[#E31E24] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="text-white w-4 h-4 ml-0.5" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative mx-5 -mt-12 bg-white p-6 shadow-xl z-10 min-h-[140px] flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-2">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span
+                                            class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest">Засал</span>
+                                        <span class="text-gray-400 text-[11px]">2024.01.12</span>
+                                    </div>
+                                    <h3 class="text-[#1a1a1a] font-bold text-lg leading-snug w-[85%]">Оффисын интерьер
+                                    </h3>
+                                </div>
+                                <div class="absolute bottom-0 right-0">
+                                    <div
+                                        class="w-10 h-10 bg-[#E31E24] text-white flex items-center justify-center hover:bg-[#c4191f] transition-colors shadow-md">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="flex-shrink-0 px-3 project-item">
+                        <div class="group relative w-full h-full cursor-pointer">
+                            <div class="relative h-[420px] w-full overflow-hidden bg-gray-200">
+                                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=800&auto=format&fit=crop"
+                                    alt="Шилэн фасад"
+                                    class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                <div
+                                    class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                                </div>
+
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="relative flex items-center justify-center">
+                                        <div
+                                            class="absolute w-16 h-16 bg-[#E31E24]/30 rounded-full animate-pulse group-hover:bg-[#E31E24]/50 transition-colors">
+                                        </div>
+                                        <div
+                                            class="relative w-12 h-12 bg-[#E31E24] rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110">
+                                            <svg class="text-white w-4 h-4 ml-0.5" fill="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative mx-5 -mt-12 bg-white p-6 shadow-xl z-10 min-h-[140px] flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-2">
+                                <div>
+                                    <div class="flex justify-between items-center mb-3">
+                                        <span
+                                            class="text-[#E31E24] text-[11px] font-bold uppercase tracking-widest">Барилга</span>
+                                        <span class="text-gray-400 text-[11px]">2023.12.30</span>
+                                    </div>
+                                    <h3 class="text-[#1a1a1a] font-bold text-lg leading-snug w-[85%]">Шилэн фасад</h3>
+                                </div>
+                                <div class="absolute bottom-0 right-0">
+                                    <div
+                                        class="w-10 h-10 bg-[#E31E24] text-white flex items-center justify-center hover:bg-[#c4191f] transition-colors shadow-md">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Bar Section -->
+        <div class="mt-16 ml-0 md:ml-[88px] flex items-center w-full md:w-2/3 lg:w-1/2">
+            <span class="text-gray-900 text-xs font-bold mr-4">01</span>
+            <div class="h-[2px] w-full bg-gray-200 relative overflow-hidden">
+                <div id="progressBar"
+                    class="absolute top-0 left-0 h-full bg-[#E31E24] transition-all duration-700 ease-out"
+                    style="width: 15%"></div>
+            </div>
+            <span class="text-gray-900 text-xs font-bold ml-4">06</span>
+        </div>
+
+        <!-- Mobile Button -->
+        <div class="md:hidden mt-10 flex justify-center">
+            <button class="bg-[#E31E24] text-white text-xs font-bold py-3.5 px-10 uppercase tracking-widest shadow-md">
+                Бүх төслүүд
+            </button>
+        </div>
+
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        let itemsPerView = 3;
+        const projectItems = document.querySelectorAll('.project-item');
+        const totalProjects = projectItems.length;
+
+        const sliderTrack = document.getElementById('sliderTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateItemWidths() {
+            projectItems.forEach(item => {
+                item.style.width = `${100 / itemsPerView}%`;
+            });
+        }
+
+        function updateSlider() {
+            const maxIndex = Math.max(0, totalProjects - itemsPerView);
+            sliderTrack.style.transform = `translateX(-${currentIndex * (100 / itemsPerView)}%)`;
+
+            const progress = maxIndex === 0 ? 100 : (currentIndex / maxIndex) * 100;
+            progressBar.style.width = `${Math.max(15, progress)}%`;
+
+            if (prevBtn) {
+                prevBtn.disabled = currentIndex === 0;
+                prevBtn.className = currentIndex === 0
+                    ? 'w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 bg-white opacity-50 cursor-not-allowed'
+                    : 'w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 bg-white hover:bg-gray-50';
+                prevBtn.querySelector('svg').className = currentIndex === 0
+                    ? 'w-5 h-5 text-gray-300'
+                    : 'w-5 h-5 text-[#E31E24]';
+            }
+
+            if (nextBtn) {
+                nextBtn.disabled = currentIndex >= maxIndex;
+                nextBtn.className = currentIndex >= maxIndex
+                    ? 'w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 bg-gray-200 text-gray-400 cursor-not-allowed'
+                    : 'w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 bg-[#E31E24] text-white hover:bg-[#c4191f]';
+            }
+        }
+
+        function handleResize() {
+            const oldItemsPerView = itemsPerView;
+
+            if (window.innerWidth < 640) itemsPerView = 1;
+            else if (window.innerWidth < 1024) itemsPerView = 2;
+            else if (window.innerWidth < 1280) itemsPerView = 3;
+            else itemsPerView = 3;
+
+            if (oldItemsPerView !== itemsPerView) {
+                currentIndex = 0;
+                updateItemWidths();
+                updateSlider();
+            }
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const maxIndex = Math.max(0, totalProjects - itemsPerView);
+                if (currentIndex < maxIndex) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+        updateItemWidths();
+        updateSlider();
+    </script>
+    <!-- Contact Section -->
+    <section class="bg-[#F8F8F8] overflow-hidden">
+        <div class="container mx-auto px-4 py-20">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Image Side -->
+                <div class="w-full lg:w-1/2 relative mb-10 lg:mb-0">
+                    <div class="relative z-10">
+                        <img src="man.png" alt="Worker" class="w-full ml-auto -mb-20">
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="w-full lg:w-1/2 lg:pl-16">
+                    <div class="mb-8">
+                        <span class="text-primary text-sm tracking-wider mb-2 block">Митайм
+                            монголиа</span>
+                        <h2 class="text-4xl font-bold text-brand-dark mb-4">Санал хүсэлт илгээх</h2>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Бид барилгын салбарт олон жилийн туршлагатай хамт олон юм. Та бидэнтэй хамтран ажиллах
+                            санал хүсэлтээ илгээнэ үү.
+                        </p>
+                    </div>
+
+                    <form class="space-y-4 p-5 bg-white" id="quote">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Овог Нэр"
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none">
+                            <input type="email" placeholder="И-мэйл хаяг"
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="tel" placeholder="Утасны дугаар"
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none">
+                            <select
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none text-gray-500">
+                                <option>Сонгох</option>
+                                <option>Барилга угсралт</option>
+                                <option>Дотоод засал</option>
+                            </select>
+                        </div>
+                        <textarea rows="4" placeholder="Санал хүсэлт бичих..."
+                            class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none"></textarea>
+
+                        <button type="submit"
+                            class="w-full bg-primary text-white font-bold py-4 uppercase tracking-widest hover:bg-red-700 transition-colors">
+                            Санал хүсэлт илгээх
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0E121D] text-white pt-20  border-t-4 border-primary bg-[url(bg.png)] bg-no-repeat bg-center">
+        <div class="container mx-auto px-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <img src="logowhite.png" />
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Бид 2019 оноос хойш барилгын салбарт чанарыг эрхэмлэн, үнэ цэнийг бүтээсээр ирсэн. Таны
+                        мөрөөдлийн барилгыг бодит болгоход бид туслахад бэлэн байна.
+                    </p>
+                    <div class="flex space-y-6 flex-col">
+                        <div>
+
+                            <div>Утас</div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="w-8 h-8 rounded bg-primary flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                                    <i data-lucide="facebook" class="w-4 h-4"></i>
+                                </div> + 1 952-435-7106
+                            </div>
+                        </div>
+                        <div>
+
+                            <div>И-мэйл</div>
+                            <div class="flex gap-4">
+                                <div
+                                    class="w-8 h-8 rounded bg-primary flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                                    <i data-lucide="mail" class="w-4 h-4"></i>
+                                </div> info@mitime.mn
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 relative inline-block">Линк
+                        <span class="absolute -bottom-2 left-0 w-10 h-0.5 bg-primary"></span>
+                        <span class="absolute -bottom-2 left-[43px] w-2.5 h-0.5 bg-primary"></span>
+                        <span class="absolute -bottom-2 left-[56px] w-1.5 h-0.5 bg-primary"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html"
+                                class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
+                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Бидний тухай</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
+                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Үйл ажиллагаа</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
+                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Хэрэгжүүлсж буй
+                                төсөл</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
+                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Харилцагчид</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
+                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Мэдээ мэдээлэл</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 relative inline-block">Сүүлийн пост
+                        <span class="absolute -bottom-2 left-0 w-10 h-0.5 bg-primary"></span>
+                        <span class="absolute -bottom-2 left-[43px] w-2.5 h-0.5 bg-primary"></span>
+                        <span class="absolute -bottom-2 left-[56px] w-1.5 h-0.5 bg-primary"></span>
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 group cursor-pointer">
+                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded">
+                                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=200"
+                                    alt="News"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            </div>
+                            <div>
+                                <h5
+                                    class="text-sm font-bold leading-tight group-hover:text-primary transition-colors mb-1">
+                                    Барилгын салбарын ирээдүйн чиг хандлага</h5>
+                                <span class="text-xs text-gray-500 flex items-center"><i data-lucide="calendar"
+                                        class="w-3 h-3 mr-1"></i> 2024.04.10</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 group cursor-pointer">
+                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded">
+                                <img src="https://plus.unsplash.com/premium_photo-1723914021060-16ed6c7631a7?w=100"
+                                    alt="News"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            </div>
+                            <div>
+                                <h5
+                                    class="text-sm font-bold leading-tight group-hover:text-primary transition-colors mb-1">
+                                    Шинэ салбарын нээлтийн үйл ажиллагаа</h5>
+                                <span class="text-xs text-gray-500 flex items-center"><i data-lucide="calendar"
+                                        class="w-3 h-3 mr-1"></i> 2024.03.20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 relative inline-block">Мэдээний товхимол
+                        <span class="absolute -bottom-2 left-0 w-10 h-0.5 bg-primary"></span>
+                        <span class="absolute -bottom-2 left-[43px] w-2.5 h-0.5 bg-primary"></span>
+                        <span class="absolute -bottom-2 left-[56px] w-1.5 h-0.5 bg-primary"></span>
+                    </h4>
+                    <p class="text-gray-400 text-sm mb-4">Мэдээ, хямдралыг имэйлээр хүлээн
+                        авахын тулд бүртгүүлээрэй.</p>
+                    <div class="flex mb-8">
+                        <input type="email" placeholder="И-мэйл хаяг..."
+                            class="bg-white text-gray-800 px-4 py-2 w-full text-sm outline-none focus:ring-2 focus:ring-primary" />
+                        <button class="bg-primary px-4 py-2 hover:bg-red-700 transition-colors text-white">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="flex space-x-2 text-sm text-white">
+                        <div
+                            class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white/5">
+            <div
+                class="container mx-auto border-t border-gray-800 py-8 px-10 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>© 2025 <span class="text-primary">MITIME MONGOLIA</span> Бүх эрх хуулиар баталгаажсан.</p>
+                <div class="grid grid-cols-2 divide-x divide-white/10">
+                    <a href="#" class="hover:text-white px-3">Үйлчилгээний нөхцөл</a>
+                    <a href="#" class="hover:text-white px-3">Нууцлалын бодлого</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

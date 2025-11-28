@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mitime Mongolia</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Load Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -245,18 +246,18 @@
             <div class=" container mx-auto flex justify-between items-center relative z-20">
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex justify-between items-center h-full">
-                    <a href=" #"
+                    <a href="about.html"
                         class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">
                         БИДНИЙ ТУХАЙ</a>
                     <a href="activity.html"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
                         ажиллагаа</a>
-                    <a href="projects.html"
+                    <a href="projects2.html"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Хэрэгжүүлж
                         буй төслүүд</a>
                     <a href="#"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Харилцагчид</a>
-                    <a href="#"
+                    <a href="news.html"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Мэдээ
                         мэдээлэл</a>
                 </nav>
@@ -298,7 +299,8 @@
         </div>
     </header>
 
-    <!-- Hero Slider -->
+
+    <!-- Hero Section -->
     <section id="banner" class="relative overflow-hidden group bg-[url(about-header-bg.png)] bg-cover bg-center h-[400px] md:h-[400px]
         flex items-center">
         <div class="absolute inset-0 z-1 
@@ -307,7 +309,7 @@
         </div>
         <div class="container mx-auto px-6 md:px-12 relative z-10 px-4">
             <h1 class="text-white text-3xl md:text-5xl font-black mb-6 leading-tight">
-                Бидний тухай
+                Хэрэгжүүлж буй төслүүд
             </h1>
 
             <!-- Орчин үеийн гоё Breadcrumb -->
@@ -320,166 +322,238 @@
                     <i data-lucide="chevrons-right" class="w-5 h-5"></i>
                 </span>
 
-                <span class="text-white font-medium">Бидний тухай</span>
+                <span class="text-white font-medium">Хэрэгжүүлж буй төслүүд</span>
             </nav>
         </div>
 
     </section>
-    <!-- ======= 1-р SECTION: Туршлагатай компани ======= -->
-    <section class="py-16 md:py-24 bg-gray-50">
-        <div class="container mx-auto px-6 md:px-12">
-            <div class="grid md:grid-cols-2 gap-12 items-start">
 
-                <!-- Зүүн тал – Зураг + Тоо -->
-                <div class="relative">
+    <section class="w-full max-w-[1440px] mx-auto px-4 md:px-8 py-12">
+        <div class="flex flex-col items-center max-w-7xl mx-auto">
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-12">
 
-                    <img src="about.png" class="w-full">
-                    <div class="absolute top-0 right-0 bg-primary text-white 
-                     w-[170px] h-[220px] md:w-[260px] md:h-[340px] 
-                     flex flex-col gap-5 items-center justify-center text-center 
-                     font-black text-5xl md:text-9xl leading-none">
-                        <span>10+</span>
-                        <p class="text-xs md:text-2xl font-bold uppercase tracking-wider">
-                            жилийн<br>туршлагатай<br>компани</p>
+                <!-- Service Card 1 - Highlighted -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=1" alt="Ерөнхий барилгын ажил"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-[#D32F2F]"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-white">Ерөнхий барилгын ажил</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-200">Барилгын салбарт сайн
+                            харилцаа маш чухал.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-white text-[#D32F2F] border-white hover:bg-gray-100">Дэлгэрэнгүй</button>
                     </div>
                 </div>
 
-                <!-- Баруун тал – Текст + Давуу талууд -->
-                <div class="space-y-20">
-                    <div class="space-y-8">
-                        <p class="text-primary tracking-wide text-sm">Митайм Монголиа</p>
-                        <h2 class="text-3xl md:text-5xl font-black text-dark leading-tight">
-                            Бид таны мөрөөдлийг бодит болгохын урьдчилж эрмэлздэг.
-                        </h2>
-                        <p class="text-gray-600 leading-relaxed">
-                            Олон орчин үеийн барилгын компаниуд тогтвортой барилгын аргууд дээр анхаарч, байгальд ээлтэй
-                            материал, эрчим хүчний хэмнэлттэй систем болон байгаль орчинд мэдрэмжтэй загварыг ашиглан
-                            төслүүдийнхээ экологийн нөлөөллийг бууруулдаг.
-                        </p>
+                <!-- Service Card 2 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=2" alt="Архитектур ба Барилга"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                     </div>
-                    <div class="space-y-16">
-
-                        <!-- Давуу талууд -->
-                        <div class="space-y-6">
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-primary/10 p-2">
-                                    <img src="olon-ulsiin.png" />
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg uppercase">Олон улсын үйлчилгээ</h4>
-                                    <p class="text-gray-600 text-sm">Тэд үйлчлүүлэгчдэдээ ил тод өртгийн тооцоо өгч,
-                                        тохиролцсон нөхцөлийг чандлан даган ажилладаг.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <hr class="h-px my-8 bg-black/10 border-0">
-
-                            <div class="flex gap-4">
-                                <div class="w-12 h-12 bg-primary/10 p-2">
-                                    <img src="shildeg.png" />
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-lg uppercase">Шилдэг компани</h4>
-                                    <p class="text-gray-600 text-sm">Найдвартай барилгын компани нь төсөв ба цагийн
-                                        хуваарийг үр дүнтэй удирдахад чадварлаг байдаг.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button class="bg-primary hover:bg-red-700 text-white px-8 py-4 font-bold uppercase transition">
-                            Илүү ихийг
-                        </button>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Архитектур ба Барилга</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Зарим компани тодорхой
+                            төрлийн төслүүдэд мэргэшсэн байдаг бол бусад нь...</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
                     </div>
                 </div>
+
+                <!-- Service Card 3 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=3" alt="Дотоод засал"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Дотоод засал</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Дотоод засал нь дотоод орчныг
+                            сайжруулах урлаг ба шинжлэх ухаан юм.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=4" alt="Барилгын шинэчлэл, засвар"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Барилгын шинэчлэл, засвар</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Барилгын салбарт сайн
+                            харилцаа маш чухал.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=5" alt="Рубикс Карабил Тауэр"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Рубикс Карабил Тауэр</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Зарим компани тодорхой
+                            төрлийн төслүүдэд мэргэшсэн байдаг бол бусад нь...</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=6" alt="Бридж Треуголь Кор"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Бридж Треуголь Кор</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Дотоод засал нь дотоод орон
+                            зайг сайжруулах урлаг ба шинжлэх ухаан юм.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 7 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=7" alt="Цахилгааны системийг нэгтгэх"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Цахилгааны системийг нэгтгэх</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Барилгын салбарт сайн
+                            харилцаа маш чухал үүрэгтэй.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 8 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=8" alt="Контейнер бүтэц"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Контейнер бүтэц</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Барилгын салбарт сайн
+                            харилцаа маш чухал үүрэгтэй.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+                <!-- Service Card 9 -->
+                <div class="relative group w-full mb-12">
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="https://picsum.photos/800/600?random=9" alt="Орчин үеийн вилла"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="relative -mt-20 mx-4 p-6 sm:p-8 transition-colors duration-300 shadow-md bg-white"
+                        style="clip-path: polygon(0 0, 100% 0, 100% 80%, 88% 100%, 0 100%);">
+                        <h3 class="text-lg font-bold mb-3 text-gray-900">Орчин үеийн вилла</h3>
+                        <p class="text-xs mb-6 line-clamp-3 leading-relaxed text-gray-500">Барилгын салбарт сайн
+                            харилцаа маш чухал үүрэгтэй.</p>
+                        <button
+                            class="text-[10px] font-bold py-2 px-4 uppercase tracking-wider border transition-colors bg-transparent text-gray-800 border-gray-200 hover:border-gray-400">Дэлгэрэнгүй</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center space-x-2">
+                <button
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center bg-[#D32F2F] text-white font-medium">1</button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors font-medium">2</button>
+                <button
+                    class="w-10 h-10 flex items-center justify-center bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- ======= 2-р SECTION: Бидний үзэл баримтлал ======= -->
-    <section class="relative py-20 md:py-32 overflow-hidden bg-[url(about-header-bg.png)] bg-cover bg-center">
-        <div class="absolute inset-0 z-1 
-    bg-gradient-to-r from-black/80 from-70% to-black/0">
-        </div>
 
-        <div class="container mx-auto px-6 md:px-12 relative z-10">
-            <div class="mb-32">
-                <h2 class="text-2xl md:text-4xl font-black text-white mb-6">
-                    Бид таны мөрөөдлийг бодит болгохыг үргэлж эрмэлздэг.
-                </h2>
-            </div>
-
-            <!-- 3 карт -->
-            <div class="grid md:grid-cols-3 gap-8 mx-auto">
-                <!-- Карт 1 -->
-                <div class="group">
-                    <div class="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 px-20 text-center border border-white/20 
-                      hover:bg-white/20 hover:border-primary transition-all duration-500 
-                      hover:scale-105 hover:shadow-2xl">
-                        <!-- <div class="w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
-                        group-hover:bg-primary group-hover:scale-110 transition">
-                            <i data-lucide="target" class="w-10 h-10 text-primary group-hover:text-white"></i>
-                        </div> -->
-                        <div class="-mt-[70px] w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
-                        group-hover:bg-primary1 group-hover:scale-110 transition">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M23.0769 1.92308C23.0769 0.860991 23.9379 0 25 0C26.0621 0 26.9231 0.860991 26.9231 1.92308V3.93239C37.0714 4.84691 45.1531 12.9286 46.0676 23.0769H48.0769C49.139 23.0769 50 23.9379 50 25C50 26.0621 49.139 26.9231 48.0769 26.9231H46.0676C45.1531 37.0714 37.0714 45.1531 26.9231 46.0676V48.0769C26.9231 49.139 26.0621 50 25 50C23.9379 50 23.0769 49.139 23.0769 48.0769V46.0676C12.9286 45.1531 4.84691 37.0714 3.93239 26.9231H1.92308C0.860991 26.9231 0 26.0621 0 25C0 23.9379 0.860991 23.0769 1.92308 23.0769H3.93239C4.84691 12.9286 12.9286 4.84691 23.0769 3.93239V1.92308ZM23.0769 9.61538C23.0769 10.6775 23.9379 11.5385 25 11.5385C26.0621 11.5385 26.9231 10.6775 26.9231 9.61538V7.79794C34.9454 8.68476 41.3152 15.0546 42.2021 23.0769H40.3846C39.3225 23.0769 38.4615 23.9379 38.4615 25C38.4615 26.0621 39.3225 26.9231 40.3846 26.9231H42.2021C41.3152 34.9454 34.9454 41.3152 26.9231 42.2021V40.3846C26.9231 39.3225 26.0621 38.4615 25 38.4615C23.9379 38.4615 23.0769 39.3225 23.0769 40.3846V42.2021C15.0546 41.3152 8.68476 34.9454 7.79794 26.9231H9.61538C10.6775 26.9231 11.5385 26.0621 11.5385 25C11.5385 23.9379 10.6775 23.0769 9.61538 23.0769H7.79794C8.68476 15.0546 15.0546 8.68476 23.0769 7.79794V9.61538Z"
-                                    fill="#D61A25" />
-                                <path opacity="0.3"
-                                    d="M17.3076 24.9999C17.3076 20.7516 20.7516 17.3076 24.9999 17.3076C29.2483 17.3076 32.6922 20.7516 32.6922 24.9999C32.6922 29.2483 29.2483 32.6922 24.9999 32.6922C20.7516 32.6922 17.3076 29.2483 17.3076 24.9999Z"
-                                    fill="#D61A25" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Эрхэм зорилго</h3>
-                        <p class="text-white leading-relaxed">
-                            Үргэлж шинийг эрэлхийлж, чанарыг эрхэмлэн, харилцагчдынхаа бүтээмжийг дээшлүүлж, зорилгодоо
-                            хүрэхэд нь тусална.
-                        </p>
+    <!-- Contact Section -->
+    <section class="bg-[#F8F8F8] overflow-hidden">
+        <div class="container mx-auto px-4 py-20">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Image Side -->
+                <div class="w-full lg:w-1/2 relative mb-10 lg:mb-0">
+                    <div class="relative z-10">
+                        <img src="man.png" alt="Worker" class="w-full ml-auto -mb-20">
                     </div>
                 </div>
 
-                <!-- Карт 2 -->
-                <div class="group">
-                    <div class="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 px-20 text-center border border-white/20 
-                      hover:bg-white/20 hover:border-primary transition-all duration-500 
-                      hover:scale-105 hover:shadow-2xl">
-
-                        <div class="-mt-[70px] w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
-                        group-hover:bg-primary1 group-hover:scale-110 transition">
-                            <svg width="49" height="50" viewBox="0 0 49 50" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M7.37183 6.85339C7.37183 4.42433 8.97114 2.23599 11.3532 1.61868C16.2002 0.362618 21.1778 -0.162436 26.134 0.0435198C19.7664 3.17772 15.3847 9.73101 15.3847 17.3077C15.3847 27.6169 24.4026 36.0314 34.6449 36.5164C32.2342 38.5738 29.2492 39.9467 25.9617 40.3354V46.1538H29.5675C30.6295 46.1538 31.4905 47.0148 31.4905 48.0769C31.4905 49.139 30.6295 50 29.5675 50H18.5097C17.4476 50 16.5866 49.139 16.5866 48.0769C16.5866 47.0148 17.4476 46.1538 18.5097 46.1538H22.1155V40.3354C14.979 39.4918 9.26841 34.0098 7.76204 26.9565C7.36337 27.0346 6.95163 27.0757 6.53048 27.0757C2.85926 27.0757 0 24.0108 0 20.3767V14.6456C0 11.0116 2.85926 7.94668 6.53048 7.94668C6.81562 7.94668 7.09645 7.9655 7.37183 8.00191V6.85339ZM7.37183 11.9354C7.1065 11.8424 6.82386 11.7928 6.53048 11.7928C5.11251 11.7928 3.84617 13.0044 3.84617 14.6456V20.3767C3.84617 22.018 5.11251 23.2295 6.53048 23.2295C6.8238 23.2295 7.10646 23.18 7.37183 23.087V11.9354Z"
-                                    fill="#D61A25" />
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M40.3147 26.9564C40.7134 27.0346 41.1251 27.0756 41.5463 27.0756C45.2175 27.0756 48.0768 24.0107 48.0768 20.3767V14.6456C48.0768 11.0115 45.2175 7.94661 41.5463 7.94661C41.2611 7.94661 40.9803 7.96543 40.7049 8.00185V6.85333C40.7049 4.42426 39.1056 2.23592 36.7235 1.61862C33.2421 0.716441 29.6934 0.191387 26.1336 0.043457C19.7659 3.17766 15.3843 9.73095 15.3843 17.3076C15.3843 27.6168 24.4022 36.0313 34.6445 36.5163C37.4669 34.1075 39.5023 30.7605 40.3147 26.9564ZM41.5463 23.2295C41.253 23.2295 40.9703 23.1799 40.7049 23.0869V11.9354C40.9702 11.8423 41.2529 11.7928 41.5463 11.7928C42.9642 11.7928 44.2306 13.0043 44.2306 14.6456V20.3767C44.2306 22.0179 42.9642 23.2295 41.5463 23.2295Z"
-                                    fill="#D61A25" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Үнэт зүйл</h3>
-                        <p class="text-white leading-relaxed">
-                            Бид үнэт зүйлдээ үндэслэн хамтын амжилт, тогтвортой ирээдүйг бүтээнэ.
+                <!-- Form Side -->
+                <div class="w-full lg:w-1/2 lg:pl-16">
+                    <div class="mb-8">
+                        <span class="text-primary text-sm tracking-wider mb-2 block">Митайм
+                            монголиа</span>
+                        <h2 class="text-4xl font-bold text-brand-dark mb-4">Санал хүсэлт илгээх</h2>
+                        <p class="text-gray-500 text-sm leading-relaxed">
+                            Бид барилгын салбарт олон жилийн туршлагатай хамт олон юм. Та бидэнтэй хамтран ажиллах
+                            санал хүсэлтээ илгээнэ үү.
                         </p>
                     </div>
-                </div>
 
-                <!-- Карт 3 -->
-                <div class="group">
-                    <div class="h-full bg-white/5 backdrop-blur-sm rounded-2xl p-8 px-20 text-center border border-white/20 
-                      hover:bg-white/20 hover:border-primary transition-all duration-500 
-                      hover:scale-105 hover:shadow-2xl">
-                        <div class="-mt-[70px] w-20 h-20 bg-white rounded-full flex flex-center justify-center items-center mx-auto mb-6 
-                        group-hover:bg-primary1 group-hover:scale-110 transition">
-                            <i data-lucide="eye" class="w-10 h-10 text-primary group-hover:text1-white"></i>
+                    <form class="space-y-4 p-5 bg-white" id="quote">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Овог Нэр"
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none">
+                            <input type="email" placeholder="И-мэйл хаяг"
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none">
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-4">Алсын хараа</h3>
-                        <p class="text-white leading-relaxed">
-                            Цахим засгийн болон цахим бизнесийн шийдлийг дэлхийн түвшинд боловсруулна.
-                        </p>
-                    </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="tel" placeholder="Утасны дугаар"
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none">
+                            <select
+                                class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none text-gray-500">
+                                <option>Сонгох</option>
+                                <option>Барилга угсралт</option>
+                                <option>Дотоод засал</option>
+                            </select>
+                        </div>
+                        <textarea rows="4" placeholder="Санал хүсэлт бичих..."
+                            class="w-full bg-gray-100 border-none p-4 text-sm focus:ring-2 focus:ring-primary outline-none"></textarea>
+
+                        <button type="submit"
+                            class="w-full bg-primary text-white font-bold py-4 uppercase tracking-widest hover:bg-red-700 transition-colors">
+                            Санал хүсэлт илгээх
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -530,10 +604,10 @@
                         <span class="absolute -bottom-2 left-[56px] w-1.5 h-0.5 bg-primary"></span>
                     </h4>
                     <ul class="space-y-3">
-                        <li><a href="#"
+                        <li><a href="about.html"
                                 class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
                                     data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Бидний тухай</a></li>
-                        <li><a href="activity.html"
+                        <li><a href="#"
                                 class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
                                     data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Үйл ажиллагаа</a></li>
                         <li><a href="#"

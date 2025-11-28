@@ -248,15 +248,15 @@
                     <a href="about.html"
                         class="py-4 px-6 text-sm font-medium uppercase bg-primary text-white transition-colors duration-300">БИДНИЙ
                         ТУХАЙ</a>
-                    <a href="#"
+                    <a href="activity.html"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Үйл
                         ажиллагаа</a>
-                    <a href="#"
+                    <a href="projects2.html"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Хэрэгжүүлж
                         буй төслүүд</a>
                     <a href="#"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Харилцагчид</a>
-                    <a href="#"
+                    <a href="news.html"
                         class="py-4 px-6 text-sm font-medium uppercase text-gray-300 hover:text-white hover:bg-white/10 transition-colors duration-300">Мэдээ
                         мэдээлэл</a>
                 </nav>
@@ -430,7 +430,7 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="py-20 bg-gray-50 bg-[url(services.png)] bg-no-repeat">
+    <section class="py-20 bg-gray-50 bg-[url(services.png)] bg-no-repeat hidden">
         <div class="container mx-auto px-4 mb-12">
             <div class="flex flex-col items-center md:items-start mb-10">
                 <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2">МИТАЙМ МОНГОЛ</span>
@@ -617,6 +617,313 @@
         </div>
     </section>
 
+    <!-- Timeline Section Start -->
+    <div id="timeline-container"
+        class="py-16 relative overflow-hidden min-h-[800px] bg-gray-50 bg-[url(services.png)] bg-no-repeat">
+        <!-- Background patterns -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none"
+            style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;">
+        </div>
+
+        <div class="container mx-auto">
+            <!-- Section Header -->
+            <div class="flex flex-col items-center md:items-start mb-10">
+                <span class="text-primary font-bold text-sm tracking-widest uppercase mb-2">МИТАЙМ МОНГОЛ</span>
+                <h2 class="text-3xl md:text-4xl font-black text-dark">Түүхэн замнал</h2>
+            </div>
+
+            <!-- Year Slider / Tabs -->
+            <div class="relative mb-8 mx-4 md:mx-0 flex items-center justify-center md:justify-center">
+                <button id="btn-prev"
+                    class="hidden md:flex w-8 h-8 items-center justify-center text-gray-500 hover:text-primary transition-colors mt-7">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+
+                <div id="year-tabs"
+                    class="flex space-x-8 md:space-x-12 overflow-x-auto hide-scrollbar pb-5 md:px-4 relative
+                after:absolute after:w-full after:h-[1px] after:bg-dark after:bottom-1 after:-translate-y-3 after:z-[-1px]">
+                    <!-- Years will be injected by JS -->
+                </div>
+
+                <button id="btn-next"
+                    class="hidden md:flex w-8 h-8 items-center justify-center text-gray-500 hover:text-primary transition-colors mt-7">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Horizontal ZigZag Slider -->
+            <div id="timeline-scroll-area" class="overflow-x-auto hide-scrollbar relative py-12">
+                <div id="timeline-track" class="flex items-center px-10 relative min-h-[800px]"
+                    style="width: max-content;">
+                    <!-- Central Horizontal Axis -->
+                    <div class="absolute top-1/2 left-0 w-full h-[2px] bg-gray-200/80 z-0"></div>
+
+                    <!-- Timeline Items will be injected by JS -->
+
+                    <!-- Spacer at the end -->
+                    <div class="w-20 flex-shrink-0"></div>
+                </div>
+            </div>
+
+            <!-- Manual Navigation Controls -->
+            <!-- <div class="absolute top-[260px] right-4 md:right-12 flex space-x-2 z-30">
+                <button id="btn-prev"
+                    class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-400 hover:border-brand-red hover:bg-brand-red hover:text-white transition duration-300 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button id="btn-next"
+                    class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center text-gray-400 hover:border-brand-red hover:bg-brand-red hover:text-white transition duration-300 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        // Data Configuration
+        const timelineData = [
+            {
+                id: 1,
+                year: '2023',
+                date: '2023.11.01',
+                title: 'Өвлийн бүтээн байгуулалт',
+                description: 'Өвлийн улиралд ч зогсолтгүй үргэлжлэх бүтээн байгуулалтын ажил амжилттай явагдаж, төлөвлөгөөт хугацаандаа ашиглалтад орох боломж бүрдлээ.',
+                imageUrl: 'https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 2,
+                year: '2023',
+                date: '2023.03.16',
+                title: 'Шүүх явдлын яамны дүрэм',
+                description: 'Монгол улс дахь нотариатын үүсэл, хөгжил Монгол Улсын Засгийн газрын тогтоолоор баталсан түүхэн өдөр.',
+                imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 3,
+                year: '2022',
+                date: '2022.07.22',
+                title: 'Шинэчлэлийн дараах үйлчилгээ',
+                description: 'Хууль зүйн салбарын шинэчлэлийн хүрээнд нотариатын үйлчилгээг цахимжуулах ажлын эхлэл тавигдаж, иргэдэд үйлчлэх хүртээмжийг нэмэгдүүлэв.',
+                imageUrl: 'https://images.unsplash.com/photo-1556156653-e55d45d8860b?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 4,
+                year: '2022',
+                date: '2022.02.10',
+                title: 'Инновацийн шагнал',
+                description: 'Салбартаа нэвтрүүлсэн шинэ технологи, инновацийн шийдлээрээ "Оны шилдэг бүтээн байгуулалт" шагналыг хүртэв.',
+                imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 5,
+                year: '2021',
+                date: '2021.05.23',
+                title: 'Барилгын салбарын түүхэн өсөлт',
+                description: 'Цар тахлын дараах эдийн засгийн сэргэлтийн үед барилгын салбар огцом өсөлт үзүүлж, томоохон төслүүд амжилттай хэрэгжиж эхэллээ.',
+                imageUrl: 'https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 6,
+                year: '2020',
+                date: '2020.09.23',
+                title: 'Шинэ оффисийн нээлт',
+                description: 'Компанийн үйл ажиллагаа өргөжиж, Улаанбаатар хотын төвд орчин үеийн стандартын шаардлага хангасан шинэ төв оффис ашиглалтад орлоо.',
+                imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 7,
+                year: '2019',
+                date: '2019.06.15',
+                title: 'Олон улсын шагнал',
+                description: 'Манай компани Азийн барилгын салбарын шилдэг гүйцэтгэгч шагналыг хүртэж, олон улсын тавцанд Монгол улсын нэрийг гаргалаа.',
+                imageUrl: 'https://images.unsplash.com/photo-1464938050520-ef2270bb8ce8?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 8,
+                year: '2018',
+                date: '2018.04.10',
+                title: 'Анхны томоохон төсөл',
+                description: 'Компанийн түүхэн дэх анхны 50 давхар барилгын төслийг амжилттай эхлүүлж, салбартаа шинэ жишиг тогтоов.',
+                imageUrl: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=600'
+            },
+            {
+                id: 9,
+                year: '2017',
+                date: '2017.02.01',
+                title: 'Үүсгэн байгуулагдсан нь',
+                description: 'Митаүм Монголиа компани албан ёсоор үүсгэн байгуулагдаж, барилга, бүтээн байгуулалтын салбарт үйл ажиллагаа явуулж эхлэв.',
+                imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600'
+            }
+        ];
+
+        // Sort timelineData by date ascending for proper timeline flow (oldest to newest left to right)
+        const parseDate = (dateStr) => {
+            const [year, month, day] = dateStr.split('.');
+            return new Date(year, month - 1, day);
+        };
+        timelineData.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+
+        // --- Logic ---
+
+        let activeYear = '2023';
+        // Get unique years and sort descending (recent first in tabs)
+        const years = Array.from(new Set(timelineData.map(item => item.year)))
+            .sort((a, b) => Number(b) - Number(a));
+
+        const yearTabsContainer = document.getElementById('year-tabs');
+        const timelineTrack = document.getElementById('timeline-track');
+        const scrollContainer = document.getElementById('timeline-scroll-area');
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+
+        function renderYears() {
+            yearTabsContainer.innerHTML = years.map(year => {
+                const isActive = activeYear === year;
+                const activeClassText = isActive ? 'text-brand-red scale-110' : 'text-gray-400 group-hover:text-gray-600';
+                const activeClassDot = isActive
+                    ? 'border-white bg-primary scale-125'
+                    : 'bg-white border border-dark border-1 group-hover:border-gray-400';
+
+                return `
+                    <button onclick="handleYearClick('${year}')" class="group relative flex flex-col items-center min-w-[60px] focus:outline-none">
+                        <span class="text-sm md:text-base font-bold mb-4 transition-colors duration-300 ${activeClassText}">
+                            ${year}
+                        </span>
+                        
+                        <div class="absolute -bottom-[10px] left-1/2 transform -translate-x-1/2 w-3 h-3 rounded-full transition-all duration-300 z-10 ${activeClassDot}"></div>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function renderTimelineItems() {
+            const line = '<div class="absolute top-1/2 left-0 w-full h-[2px] bg-gray-200/80 z-0"></div>';
+
+            const itemsHtml = timelineData.map((item, index) => {
+                const isOdd = index % 2 !== 0;
+                const isTop = isOdd; // Matches the React Logic: index 0 (even) -> Bottom, index 1 (odd) -> Top
+
+                const verticalLineClass = isTop
+                    ? 'bottom-1/2 h-[40px] group-hover:h-[50px] origin-bottom'
+                    : 'top-1/2 h-[40px] group-hover:h-[50px] origin-top';
+
+                const cardWrapperClass = isTop
+                    ? 'bottom-1/2 mb-[40px] group-hover:mb-[50px]'
+                    : 'top-1/2 mt-[40px] group-hover:mt-[50px]';
+
+                const arrowClass = isTop
+                    ? '-bottom-2 border-r border-b rotate-45' // Point down
+                    : '-top-2 border-l border-t rotate-45';   // Point up
+
+                return `
+                    <div class="relative w-[350px] mx-4 flex-shrink-0 h-[450px] group flex justify-center" data-year="${item.year}">
+                        
+                        <!-- Center Date on Line -->
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-bold text-white z-20 shadow-sm group-hover:scale-125 transition-transform duration-300 whitespace-nowrap bg-primary px-2 py-1 rounded-lg">
+                            ${item.date}
+                        </div>
+
+                        <!-- Vertical Connector Line -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-[1px] bg-gray-300 -z-10 transition-all duration-500 ${verticalLineClass}"></div>
+
+                        <!-- Card Wrapper -->
+                        <div class="absolute left-0 w-full transition-all duration-500 px-2 ${cardWrapperClass}">
+                            <!-- The Card -->
+                            <div class="bg-white p-4 rounded-lg shadow-md border border-gray-100 relative group-hover:shadow-2xl transition-all duration-300">
+                                
+                                <!-- Arrow Pointer -->
+                                <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white border-gray-100 z-10 ${arrowClass}"></div>
+
+                                <!-- Image Thumbnail -->
+                                <div class="h-36 w-full overflow-hidden rounded mb-3 relative">
+                                    <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700" />
+                                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition duration-300"></div>
+                                </div>
+                                
+                                <h3 class="font-bold text-base md:text-lg mb-2 text-gray-800 leading-tight group-hover:text-brand-red transition-colors">
+                                    ${item.title}
+                                </h3>
+                                
+                                <p class="text-xs text-gray-500 leading-relaxed line-clamp-3">
+                                    ${item.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const spacer = '<div class="w-20 flex-shrink-0"></div>';
+
+            timelineTrack.innerHTML = line + itemsHtml + spacer;
+        }
+
+        // --- Interaction ---
+
+        window.handleYearClick = (year) => {
+            activeYear = year;
+            renderYears(); // Update UI for active year
+
+            // Find the first index of the year
+            const firstIndex = timelineData.findIndex(item => item.year === year);
+            if (firstIndex === -1) return;
+
+            // Count number of items in this year
+            const numItems = timelineData.filter(item => item.year === year).length;
+
+            // Calculate group bounds
+            let minLeft = Infinity;
+            let maxRight = -Infinity;
+            for (let i = 0; i < numItems; i++) {
+                const itemIndex = firstIndex + i;
+                const targetItem = timelineTrack.children[itemIndex + 1]; // +1 for the line
+                if (targetItem) {
+                    const itemLeft = targetItem.offsetLeft;
+                    const itemWidth = targetItem.offsetWidth;
+                    minLeft = Math.min(minLeft, itemLeft);
+                    maxRight = Math.max(maxRight, itemLeft + itemWidth);
+                }
+            }
+
+            if (minLeft !== Infinity && maxRight !== -Infinity) {
+                const groupCenter = (minLeft + maxRight) / 2;
+                const containerWidth = scrollContainer.clientWidth;
+                scrollContainer.scrollTo({
+                    left: groupCenter - (containerWidth / 2),
+                    behavior: 'smooth'
+                });
+            }
+        };
+
+        btnPrev.addEventListener('click', () => {
+            const currentIndex = years.indexOf(activeYear);
+            const newIndex = Math.max(0, currentIndex - 1); // To newer year
+            if (newIndex !== currentIndex) {
+                const newYear = years[newIndex];
+                handleYearClick(newYear);
+            }
+        });
+
+        btnNext.addEventListener('click', () => {
+            const currentIndex = years.indexOf(activeYear);
+            const newIndex = Math.min(years.length - 1, currentIndex + 1); // To older year
+            if (newIndex !== currentIndex) {
+                const newYear = years[newIndex];
+                handleYearClick(newYear);
+            }
+        });
+
+        // Initialize
+        renderYears();
+        renderTimelineItems();
+        // Initial scroll to active year
+        handleYearClick(activeYear);
+
+    </script>
+
     <!-- Footer -->
     <footer class="bg-[#0E121D] text-white pt-20  border-t-4 border-primary bg-[url(bg.png)] bg-no-repeat bg-center">
         <div class="container mx-auto px-10">
@@ -662,15 +969,15 @@
                         <span class="absolute -bottom-2 left-[56px] w-1.5 h-0.5 bg-primary"></span>
                     </h4>
                     <ul class="space-y-3">
-                        <li><a href="#"
+                        <li><a href="about.html"
                                 class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
                                     data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Бидний тухай</a></li>
-                        <li><a href="#"
+                        <li><a href="activity.html"
                                 class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
                                     data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Үйл ажиллагаа</a></li>
-                        <li><a href="#"
+                        <li><a href="projects.html"
                                 class="text-gray-400 hover:text-primary transition-colors text-sm flex items-center"><i
-                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Хэрэгжүүлсж буй
+                                    data-lucide="arrow-right" class="mr-2 w-3 h-3 opacity-50"></i>Хэрэгжүүлж буй
                                 төсөл</a>
                         </li>
                         <li><a href="#"
